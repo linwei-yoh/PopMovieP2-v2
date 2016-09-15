@@ -94,15 +94,6 @@ public class MainActivity extends AppCompatActivity implements Main_Fragment.Cal
             Detail_Fragment fragment = (Detail_Fragment)getSupportFragmentManager().findFragmentByTag(DETAIL_FLAG);
             fragment.resetId(mMovie_Id);
 
-//            Bundle args = new Bundle();
-//            args.putString(Detail_Fragment.DETAIL_KEY, mMovie_Id);
-//
-//            Detail_Fragment fragment = new Detail_Fragment();
-//            fragment.setArguments(args);
-//
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.movie_detail_container, fragment, DETAIL_FLAG)
-//                    .commit();
         } else {
             Intent intent = new Intent(this, DetailActivity.class)
                     .putExtra(Detail_Fragment.DETAIL_KEY, mMovie_Id);
