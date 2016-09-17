@@ -117,15 +117,6 @@ public class  PopSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
 
-    private void deleteOldsrc(int julianday) {
-        Time dayTime = new Time();
-        getContext().getContentResolver().delete(PopContract.MoviesStore.CONTENT_URI,
-                PopContract.MoviesStore.COLUMN_DATEMARK + " <= ?",
-                new String[]{Long.toString(dayTime.setJulianDay(julianday - 1))});
-    }
-
-
-
     @Override
     public void onPerformSync(Account account, Bundle bundle, String s, ContentProviderClient contentProviderClient, SyncResult syncResult) {
         Log.d(LOG_TAG, "Starting sync");

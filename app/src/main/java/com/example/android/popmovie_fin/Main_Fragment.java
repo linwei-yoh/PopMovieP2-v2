@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import com.example.android.popmovie_fin.popprovider.PopContract.MoviesStore;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class Main_Fragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -59,19 +57,21 @@ public class Main_Fragment extends Fragment implements LoaderManager.LoaderCallb
         super.onActivityCreated(savedInstanceState);
     }
 
-    @BindView(R.id.MovieTable) GridView tableList;
+    @BindView(R.id.MovieTable)
+    GridView tableList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
-        ButterKnife.bind(this,root);
+        ButterKnife.bind(this, root);
 
         if (((Callback) getActivity()).IsTwoPane())
             tableList.setNumColumns(3);
         else
             tableList.setNumColumns(2);
+
 
         mMovieListAdapter = new MovieListAdapter(getContext(), null, 0);
         tableList.setAdapter(mMovieListAdapter);
@@ -128,8 +128,8 @@ public class Main_Fragment extends Fragment implements LoaderManager.LoaderCallb
         mMovieListAdapter.swapCursor(data);
         if (mState != null)
             tableList.onRestoreInstanceState(mState);
-        else if (mMovieListAdapter.getCount() >0)
-            tableList.performItemClick(null,0, 0);
+        else if (mMovieListAdapter.getCount() > 0  && ((Callback) getActivity()).IsTwoPane())
+            tableList.performItemClick(null, 0, 0);
     }
 
     @Override
