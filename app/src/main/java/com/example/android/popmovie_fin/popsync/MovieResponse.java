@@ -82,6 +82,4 @@ public class MovieResponse {
         MovieDataResponse movieDataResponse = gson.fromJson(response, MovieDataResponse.class);
         return movieDataResponse;
     }
-
-
 }
