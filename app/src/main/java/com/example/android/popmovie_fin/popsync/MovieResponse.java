@@ -10,13 +10,13 @@ import java.util.List;
 public class MovieResponse {
 
     public class MovieInfoItem {
-        String id;
+        public String id;
     }
 
     public class MovieTrailerItem {
-        String type;    //类型  预告片
-        String source;  //视频ID
-        String name;    //视频名称
+        public String type;    //类型  预告片
+        public String source;  //视频ID
+        public String name;    //视频名称
     }
 
     public class MovieWebSiteItem {
@@ -28,8 +28,8 @@ public class MovieResponse {
     }
 
     public class MovieReviewItem {
-        String author;
-        String content;
+        public String author;
+        public String content;
     }
 
     public class MovieReviewList {
